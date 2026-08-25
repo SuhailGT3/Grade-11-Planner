@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Grade 12 Planner</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #172033;
+    min-height: 100vh;
+}
+
+header {
+    background: #172033;
+    color: white;
+    padding: 20px;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.welcome p {
+    color: #687386;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.weather {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+}
+
+.weather-location {
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.temperature {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.weather-details {
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+.timetable {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.period {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 15px;
+    padding: 14px;
+    background: #f5f7fa;
+    border-radius: 10px;
+    border-left: 5px solid #3b82f6;
+}
+
+.period.break {
+    border-left-color: #f59e0b;
+    background: #fff8e7;
+}
+
+.time {
+    font-weight: bold;
+    color: #687386;
+}
+
+.subject {
+    font-weight: bold;
+}
+
+.activity {
+    color: #687386;
+    font-size: 13px;
+}
+
+.current {
+    background: #e8f1ff;
+    border-left-color: #2563eb;
+}
+
+.day-selector {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.day-button {
+    border: none;
+    background: #edf0f4;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.day-button.active {
+    background: #172033;
+    color: white;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f5f7fa;
+    border-radius: 8px;
+}
+
+.task.completed span {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.task button {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.add-task {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+input, select {
+    padding: 11px;
+    border: 1px solid #d6dbe3;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.add-task input {
+    flex: 1;
+}
+
+button.primary {
+    background: #172033;
+    color: white;
+    border: none;
+    padding: 11px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.primary:hover {
+    opacity: 0.9;
+}
+
+.activities {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-item {
+    padding: 12px;
+    border-radius: 8px;
+    background: #f5f7fa;
+}
+
+.activity-name {
+    font-weight: bold;
+}
+
+.activity-time {
+    color: #687386;
+    font-size: 13px;
+}
+
+.settings {
+    display: none;
+}
+
+.settings.active {
+    display: block;
+}
+
+.settings-section {
+    margin-bottom: 25px;
+}
+
+.settings-section h3 {
+    margin-bottom: 12px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.timetable-input {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.small-button {
+    border: none;
+    background: #ef4444;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.empty {
+    color: #7b8494;
+    padding: 10px 0;
+}
+
+.progress-container {
+    margin-top: 15px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #3b82f6;
+    transition: width 0.3s;
+}
+
+@media (max-width: 850px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 15px;
+    }
+
+    .welcome h1 {
+        font-size: 25px;
+    }
+
+    .period {
+        grid-template-columns: 75px 1fr;
+    }
+
+    .period .activity {
+        display: none;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .timetable-input {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-inner">
+
+<div>
+<div class="logo">🎓 Grade 12 Planner</div>
+<div class="date" id="headerDate"></div>
+</div>
+
+<button class="primary" onclick="toggleSettings()">
+⚙️ Settings
+</button>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="welcome">
+
+<h1 id="greeting">Good morning!</h1>
+
+<p>
+Plan your school day, activities and study time.
+</p>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboard">
+
+<div class="dashboard">
+
+<div>
+
+<!-- TIMETABLE -->
+
+<div class="card">
+
+<h2>📚 Today's Timetable</h2>
+
+<div class="day-selector">
+
+<button class="day-button" onclick="selectDay('Monday')">Mon</button> <button class="day-button" onclick="selectDay('Tuesday')">Tue</button> <button class="day-button" onclick="selectDay('Wednesday')">Wed</button> <button class="day-button" onclick="selectDay('Thursday')">Thu</button> <button class="day-button" onclick="selectDay('Friday')">Fri</button>
+
+</div>
+
+<div id="timetable" class="timetable"></div>
+
+</div>
+
+<!-- TASKS -->
+
+<div class="card">
+
+<h2>✅ Today's Tasks</h2>
+
+<div id="tasks" class="tasks"></div>
+
+<div class="add-task">
+
+<input id="taskInput" placeholder="Add a task...">
+
+<button class="primary" onclick="addTask()">
+Add
+</button>
+
+</div>
+
+<div class="progress-container">
+
+<p id="progressText">0% complete</p>
+
+<div class="progress-bar">
+
+<div id="progressBar" class="progress"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<!-- WEATHER -->
+
+<div class="card weather">
+
+<h2>🌦️ Weather</h2>
+
+<div class="weather-location" id="weatherLocation">
+Loading...
+</div>
+
+<div class="temperature" id="temperature">
+--°
+</div>
+
+<div id="weatherDescription">
+Loading weather...
+</div>
+
+<div class="weather-details">
+
+<div>💨 Wind: <span id="wind">--</span></div>
+
+<div>💧 Rain chance: <span id="rain">--</span></div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITIES -->
+
+<div class="card">
+
+<h2>🏃 Extra Murals</h2>
+
+<div id="activities" class="activities"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SETTINGS -->
+
+<div id="settings" class="settings">
+
+<div class="card">
+
+<h2>⚙️ Planner Settings</h2>
+
+<div class="settings-section">
+
+<h3>👤 Student</h3>
+
+<div class="form-row">
+
+<input id="studentName" placeholder="Your name">
+
+<input id="schoolName" placeholder="School name">
+
+</div>
+
+</div>
+
+<div class="settings-section">
+
+<h3>📍 Weather Location</h3>
+
+<div class="form-row">
+
+<input id="weatherCity" placeholder="City">
+
+<input id="weatherCountry" placeholder="Country">
+
+</div>
+
+<button class="primary" onclick="saveWeatherLocation()">
+Save Location
+</button>
+
+</div>
+
+<div class="settings-section">
+
+<h3>📚 Weekly Timetable</h3>
+
+<p style="color:#687386;margin-bottom:15px;">
+Add your subjects, breaks and times for each day.
+School hours are set between 07:30 and 14:00.
+</p>
+
+<div id="timetableSettings"></div>
+
+</div>
+
+<div class="settings-section">
+
+<h3>🏃 Extra-Mural Activities</h3>
+
+<div id="activitySettings"></div>
+
+<button class="primary" onclick="addActivity()">
++ Add Activity
+</button>
+
+</div>
+
+<button class="primary" onclick="saveSettings()">
+💾 Save Planner
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday"
+];
+
+
+let selectedDay = days[new Date().getDay() - 1] || "Monday";
+
+
+let data = JSON.parse(localStorage.getItem("grade12Planner")) || {
+
+    studentName: "",
+
+    schoolName: "",
+
+    weatherCity: "Vryheid",
+
+    weatherCountry: "South Africa",
+
+    timetable: {
+
+        Monday: [
+            {time:"07:30 - 08:30", subject:"Mathematics", type:"subject"},
+            {time:"08:30 - 09:30", subject:"English", type:"subject"},
+            {time:"09:30 - 09:50", subject:"Break", type:"break"},
+            {time:"09:50 - 10:50", subject:"Business Studies", type:"subject"},
+            {time:"10:50 - 11:50", subject:"Geography", type:"subject"},
+            {time:"11:50 - 12:10", subject:"Break", type:"break"},
+            {time:"12:10 - 13:10", subject:"CAT", type:"subject"},
+            {time:"13:10 - 14:00", subject:"Life Orientation", type:"subject"}
+        ],
+
+        Tuesday: [],
+        Wednesday: [],
+        Thursday: [],
+        Friday: []
+
+    },
+
+    activities: [
+
+        {
+            name:"Tennis",
+            day:"Monday",
+            time:"15:00 - 16:30"
+        }
+
+    ],
+
+    tasks: {}
+
+};
+
+
+function saveData() {
+
+    localStorage.setItem(
+        "grade12Planner",
+        JSON.stringify(data)
+    );
+
+}
+
+
+function updateDate() {
+
+    const now = new Date();
+
+    document.getElementById("headerDate").textContent =
+        now.toLocaleDateString(
+            "en-ZA",
+            {
+                weekday:"long",
+                day:"numeric",
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+    const hour = now.getHours();
+
+    let greeting = "Good evening!";
+
+    if(hour < 12) greeting = "Good morning!";
+
+    else if(hour < 18) greeting = "Good afternoon!";
+
+    document.getElementById("greeting").textContent =
+        data.studentName
+        ? `${greeting} ${data.studentName}!`
+        : greeting;
+
+}
+
+
+function selectDay(day) {
+
+    selectedDay = day;
+
+    renderTimetable();
+
+    renderActivities();
+
+    renderTasks();
+
+}
+
+
+function renderTimetable() {
+
+    const container =
+        document.getElementById("timetable");
+
+    container.innerHTML = "";
+
+    days.forEach(day => {
+
+        document
+        .querySelectorAll(".day-button")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.textContent === day.substring(0,3)
+                &&
+                selectedDay === day
+            );
+
+        });
+
+    });
+
+
+    const periods =
+        data.timetable[selectedDay] || [];
+
+
+    if(periods.length === 0) {
+
+        container.innerHTML =
+            `<div class="empty">
+            No timetable added for ${selectedDay}.
+            Go to Settings to add your timetable.
+            </div>`;
+
+        return;
+
+    }
+
+
+    periods.forEach(period => {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "period " +
+            (period.type === "break" ? "break" : "");
+
+
+        div.innerHTML = `
+
+            <div class="time">
+                ${period.time}
+            </div>
+
+            <div>
+
+                <div class="subject">
+                    ${period.subject}
+                </div>
+
+                <div class="activity">
+                    ${period.type === "break"
+                    ? "Rest"
+                    : "School subject"}
+                </div>
+
+            </div>
+
+            <div>
+                ${period.type === "break" ? "☕" : "📚"}
+            </div>
+
+        `;
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+function renderActivities() {
+
+    const container =
+        document.getElementById("activities");
+
+    container.innerHTML = "";
+
+    const activities =
+        data.activities.filter(
+            activity => activity.day === selectedDay
+        );
+
+
+    if(activities.length === 0) {
+
+        container.innerHTML =
+            `<div class="empty">
+            No extra-mural activities today.
+            </div>`;
+
+        return;
+
+    }
+
+
+    activities.forEach(activity => {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "activity-item";
+
+        div.innerHTML = `
+
+            <div class="activity-name">
+                ${activity.name}
+            </div>
+
+            <div class="activity-time">
+                🕐 ${activity.time}
+            </div>
+
+        `;
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+function renderTasks() {
+
+    const container =
+        document.getElementById("tasks");
+
+    container.innerHTML = "";
+
+    if(!data.tasks[selectedDay]) {
+
+        data.tasks[selectedDay] = [];
+
+    }
+
+
+    const tasks =
+        data.tasks[selectedDay];
+
+
+    if(tasks.length === 0) {
+
+        container.innerHTML =
+            `<div class="empty">
+            No tasks yet. Add one below.
+            </div>`;
+
+    }
+
+
+    tasks.forEach((task,index) => {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "task " +
+            (task.completed ? "completed" : "");
+
+
+        div.innerHTML = `
+
+            <input
+                type="checkbox"
+                ${task.completed ? "checked" : ""}
+                onchange="toggleTask(${index})"
+            >
+
+            <span>${task.text}</span>
+
+            <button onclick="deleteTask(${index})">
+                🗑️
+            </button>
+
+        `;
+
+        container.appendChild(div);
+
+    });
+
+
+    updateProgress();
+
+}
+
+
+function addTask() {
+
+    const input =
+        document.getElementById("taskInput");
+
+    const text =
+        input.value.trim();
+
+
+    if(!text) return;
+
+
+    if(!data.tasks[selectedDay]) {
+
+        data.tasks[selectedDay] = [];
+
+    }
+
+
+    data.tasks[selectedDay].push({
+
+        text:text,
+
+        completed:false
+
+    });
+
+
+    input.value = "";
+
+    saveData();
+
+    renderTasks();
+
+}
+
+
+function toggleTask(index) {
+
+    data.tasks[selectedDay][index].completed =
+        !data.tasks[selectedDay][index].completed;
+
+    saveData();
+
+    renderTasks();
+
+}
+
+
+function deleteTask(index) {
+
+    data.tasks[selectedDay].splice(index,1);
+
+    saveData();
+
+    renderTasks();
+
+}
+
+
+function updateProgress() {
+
+    const tasks =
+        data.tasks[selectedDay] || [];
+
+
+    if(tasks.length === 0) {
+
+        document.getElementById("progressBar").style.width = "0%";
+
+        document.getElementById("progressText").textContent =
+            "0% complete";
+
+        return;
+
+    }
+
+
+    const completed =
+        tasks.filter(task => task.completed).length;
+
+
+    const percentage =
+        Math.round(
+            completed / tasks.length * 100
+        );
+
+
+    document.getElementById("progressBar")
+        .style.width = percentage + "%";
+
+
+    document.getElementById("progressText")
+        .textContent =
+        `${percentage}% complete`;
+
+}
+
+
+function toggleSettings() {
+
+    document
+        .getElementById("dashboard")
+        .style.display =
+
+        document
+        .getElementById("dashboard")
+        .style.display === "none"
+
+        ? "block"
+        : "none";
+
+
+    document
+        .getElementById("settings")
+        .classList.toggle("active");
+
+}
+
+
+function loadSettings() {
+
+    document.getElementById("studentName").value =
+        data.studentName;
+
+    document.getElementById("schoolName").value =
+        data.schoolName;
+
+    document.getElementById("weatherCity").value =
+        data.weatherCity;
+
+    document.getElementById("weatherCountry").value =
+        data.weatherCountry;
+
+
+    renderTimetableSettings();
+
+    renderActivitySettings();
+
+}
+
+
+function renderTimetableSettings() {
+
+    const container =
+        document.getElementById("timetableSettings");
+
+    container.innerHTML = "";
+
+
+    days.forEach(day => {
+
+        const section =
+            document.createElement("div");
+
+        section.style.marginBottom = "25px";
+
+
+        section.innerHTML = `
+
+            <h4 style="margin-bottom:10px;">
+                ${day}
+            </h4>
+
+            <div id="settings-${day}"></div>
+
+            <button
+                class="primary"
+                onclick="addPeriod('${day}')"
+            >
+                + Add Period
+            </button>
+
+        `;
+
+
+        container.appendChild(section);
+
+
+        renderDaySettings(day);
+
+    });
+
+}
+
+
+function renderDaySettings(day) {
+
+    const container =
+        document.getElementById(
+            `settings-${day}`
+        );
+
+    container.innerHTML = "";
+
+
+    const periods =
+        data.timetable[day] || [];
+
+
+    periods.forEach((period,index) => {
+
+        const row =
+            document.createElement("div");
+
+        row.className =
+            "timetable-input";
+
+
+        row.innerHTML = `
+
+            <input
+                value="${period.time}"
+                placeholder="07:30 - 08:30"
+                onchange="updatePeriod('${day}',${index},'time',this.value)"
+            >
+
+            <input
+                value="${period.subject}"
+                placeholder="Subject / Break"
+                onchange="updatePeriod('${day}',${index},'subject',this.value)"
+            >
+
+            <select
+                onchange="updatePeriod('${day}',${index},'type',this.value)"
+            >
+
+                <option
+                    value="subject"
+                    ${period.type === "subject" ? "selected" : ""}
+                >
+                    Subject
+                </option>
+
+                <option
+                    value="break"
+                    ${period.type === "break" ? "selected" : ""}
+                >
+                    Break
+                </option>
+
+            </select>
+
+            <button
+                class="small-button"
+                onclick="removePeriod('${day}',${index})"
+            >
+                Remove
+            </button>
+
+        `;
+
+        container.appendChild(row);
+
+    });
+
+}
+
+
+function addPeriod(day) {
+
+    if(!data.timetable[day]) {
+
+        data.timetable[day] = [];
+
+    }
+
+
+    data.timetable[day].push({
+
+        time:"",
+
+        subject:"",
+
+        type:"subject"
+
+    });
+
+
+    renderTimetableSettings();
+
+}
+
+
+function updatePeriod(day,index,field,value) {
+
+    data.timetable[day][index][field] =
+        value;
+
+}
+
+
+function removePeriod(day,index) {
+
+    data.timetable[day].splice(index,1);
+
+    renderTimetableSettings();
+
+}
+
+
+function renderActivitySettings() {
+
+    const container =
+        document.getElementById("activitySettings");
+
+    container.innerHTML = "";
+
+
+    data.activities.forEach((activity,index) => {
+
+        const row =
+            document.createElement("div");
+
+        row.className =
+            "form-row";
+
+
+        row.innerHTML = `
+
+            <input
+                value="${activity.name}"
+                placeholder="Activity"
+                onchange="data.activities[${index}].name=this.value"
+            >
+
+            <select
+                onchange="data.activities[${index}].day=this.value"
+            >
+
+                ${days.map(day =>
+                    `<option
+                        ${activity.day === day ? "selected" : ""}
+                    >
+                    ${day}
+                    </option>`
+                ).join("")}
+
+            </select>
+
+            <input
+                value="${activity.time}"
+                placeholder="15:00 - 16:30"
+                onchange="data.activities[${index}].time=this.value"
+            >
+
+            <button
+                class="small-button"
+                onclick="removeActivity(${index})"
+            >
+                Remove
+            </button>
+
+        `;
+
+        container.appendChild(row);
+
+    });
+
+}
+
+
+function addActivity() {
+
+    data.activities.push({
+
+        name:"",
+
+        day:"Monday",
+
+        time:""
+
+    });
+
+
+    renderActivitySettings();
+
+}
+
+
+function removeActivity(index) {
+
+    data.activities.splice(index,1);
+
+    renderActivitySettings();
+
+}
+
+
+function saveSettings() {
+
+    data.studentName =
+        document.getElementById("studentName").value;
+
+    data.schoolName =
+        document.getElementById("schoolName").value;
+
+    saveData();
+
+    updateDate();
+
+    renderTimetable();
+
+    renderActivities();
+
+    renderTasks();
+
+    alert("Planner saved!");
+
+}
+
+
+function saveWeatherLocation() {
+
+    data.weatherCity =
+        document.getElementById("weatherCity").value;
+
+    data.weatherCountry =
+        document.getElementById("weatherCountry").value;
+
+    saveData();
+
+    loadWeather();
+
+    alert("Weather location saved!");
+
+}
+
+
+async function loadWeather() {
+
+    const city =
+        data.weatherCity || "Vryheid";
+
+    const country =
+        data.weatherCountry || "South Africa";
+
+
+    try {
+
+        const geoResponse =
+            await fetch(
+                `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
+            );
+
+
+        const geo =
+            await geoResponse.json();
+
+
+        if(!geo.results || geo.results.length === 0) {
+
+            document.getElementById("weatherLocation")
+                .textContent =
+                "Location not found";
+
+            return;
+
+        }
+
+
+        const location =
+            geo.results[0];
+
+
+        const weatherResponse =
+            await fetch(
+                `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,wind_speed_10m,precipitation&hourly=precipitation_probability&timezone=auto`
+            );
+
+
+        const weather =
+            await weatherResponse.json();
+
+
+        const temperature =
+            Math.round(
+                weather.current.temperature_2m
+            );
+
+
+        document.getElementById("weatherLocation")
+            .textContent =
+            `${location.name}, ${country}`;
+
+
+        document.getElementById("temperature")
+            .textContent =
+            `${temperature}°C`;
+
+
+        document.getElementById("weatherDescription")
+            .textContent =
+            "Current weather";
+
+
+        document.getElementById("wind")
+            .textContent =
+            `${Math.round(weather.current.wind_speed_10m)} km/h`;
+
+
+        document.getElementById("rain")
+            .textContent =
+            `${weather.hourly.precipitation_probability[0] || 0}%`;
+
+    }
+
+    catch(error) {
+
+        document.getElementById("weatherLocation")
+            .textContent =
+            "Weather unavailable";
+
+        document.getElementById("weatherDescription")
+            .textContent =
+            "Check your internet connection.";
+
+    }
+
+}
+
+
+updateDate();
+
+renderTimetable();
+
+renderActivities();
+
+renderTasks();
+
+loadSettings();
+
+loadWeather();
+
+</script>
+
+</body>
+</html>
