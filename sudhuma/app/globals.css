@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/*
+  SUDHUMA design tokens (Tailwind v4 theme)
+  ----------------------------------------
+  Defining colours here creates utility classes automatically:
+  `bg-paper`, `text-ink`, `bg-ember`, `border-line`, etc.
+*/
+@theme {
+  /* System font stack: no downloads, works offline, fast everywhere. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --color-paper: #faf6ee; /* warm paper background */
+  --color-parchment: #f1ead9; /* slightly deeper warm surface */
+  --color-ink: #1c1d24; /* near-black text */
+  --color-ink-soft: #5d5e6a; /* muted text */
+  --color-line: #e3dcc9; /* warm borders */
+  --color-ember: #e0512a; /* primary accent */
+  --color-ember-deep: #b23a1e; /* accent for hover/active */
+  --color-gold: #e9a13b; /* highlight / glow */
+}
+
+/* Slow downward drift for the hero grid floor (one tile = 44px, see below). */
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 44px;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-ember);
+  color: #fff;
+}
+
+/* Accessible keyboard focus everywhere, in brand colour. */
+:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/*
+  RetroGrid floor (our subtle adaptation of the Magic UI idea)
+  ------------------------------------------------------------
+  A flat grid made of two repeating gradients, tilted with a
+  perspective transform so it reads as a "floor", then faded out
+  with a mask so it never fights the headline for attention.
+*/
+.retro-grid-floor {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  top: 34%;
+  bottom: -12%;
+  transform: perspective(700px) rotateX(60deg);
+  transform-origin: center bottom;
+  background-image:
+    linear-gradient(to right, rgb(28 29 36 / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(28 29 36 / 0.1) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to top, black 25%, transparent 80%);
+  -webkit-mask-image: linear-gradient(to top, black 25%, transparent 80%);
+  animation: grid-drift 22s linear infinite;
+}
+
+/* Respect users who prefer no animation. */
+@media (prefers-reduced-motion: reduce) {
+  .retro-grid-floor {
+    animation: none;
+  }
+}
