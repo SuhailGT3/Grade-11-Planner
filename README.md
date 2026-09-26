@@ -11,6 +11,7 @@ Built step-by-step as a learning project. Current step: **Step 1 — foundation*
 |---|---|
 | `sudhuma/` | The new Next.js web app (the real product). |
 | `index.html` | The original single-file "StudentOS" prototype. Kept as reference — ideas and design tokens may be carried over. Not part of the new app. |
+| `gt09/` | GT-09 Racing engineering workspace: go-kart CAD lessons, generated cut list / plan view / design checks, and the path to the matric motorsport entrance. Start at `gt09/README.md`. |
 
 ## Run the app (Step 1)
 

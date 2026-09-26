@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "id": "gt09-kart-chassis-v0",
+    "name": "Project 1 - Go-kart space frame (v0)",
+    "status": "UNVERIFIED PLACEHOLDER",
+    "status_note": "Every number in this file is a STARTING GEOMETRY used to teach the workflow. None of it has been measured from the Onshape blueprint or from a real kart. Replace values with measured ones before any steel is cut.",
+    "units": "mm",
+    "axis_convention": "x = forward from front axle centreline (positive rearwards), y = lateral (0 = centreline, positive = right hand side of driver), z = up from ground",
+    "author": "GT-09 Racing",
+    "revision": "v0",
+    "last_reviewed": "not yet reviewed by an adult/professional"
+  },
+
+  "stock": [
+    {
+      "id": "SQ25x2.0",
+      "label": "25 x 25 x 2.0 mm mild steel square tube",
+      "stock_length_mm": 6000,
+      "use": "Main rails. Thickest wall because these carry everything."
+    },
+    {
+      "id": "SQ25x1.6",
+      "label": "25 x 25 x 1.6 mm mild steel square tube",
+      "stock_length_mm": 6000,
+      "use": "Crossmembers."
+    },
+    {
+      "id": "SQ20x1.6",
+      "label": "20 x 20 x 1.6 mm mild steel square tube",
+      "stock_length_mm": 6000,
+      "use": "Diagonal braces. Lighter because they only carry tension/compression along their length."
+    },
+    {
+      "id": "RD25x2.0",
+      "label": "25 mm OD x 2.0 mm round tube",
+      "stock_length_mm": 6000,
+      "use": "Steering shaft support / bearing housing."
+    }
+  ],
+
+  "cutting": {
+    "kerf_mm": 3,
+    "allowance_per_cut_mm": 5,
+    "allowance_note": "5 mm left on every cut so the end can be squared and cleaned up. Do not weld a piece shorter than its finished length."
+  },
+
+  "nodes": {
+    "RL_F":      [-60, -290, 150],
+    "RL_R":      [1080, -290, 150],
+    "RR_F":      [-60,  290, 150],
+    "RR_R":      [1080,  290, 150],
+
+    "XC1_L":     [-40, -290, 150],
+    "XC1_R":     [-40,  290, 150],
+    "XC2_L":     [150, -290, 150],
+    "XC2_C":     [150,    0, 150],
+    "XC2_R":     [150,  290, 150],
+    "XC3_L":     [430, -290, 150],
+    "XC3_R":     [430,  290, 150],
+    "XC4_L":     [700, -290, 150],
+    "XC4_C":     [700,    0, 150],
+    "XC4_R":     [700,  290, 150],
+    "XC5_L":     [900, -290, 150],
+    "XC5_C":     [900,    0, 150],
+    "XC5_R":     [900,  290, 150],
+    "XC6_L":     [1060, -290, 150],
+    "XC6_R":     [1060,  290, 150],
+
+    "STR_LO":    [250,    0, 150],
+    "STR_HI":    [310,    0, 330]
+  },
+
+  "members": [
+    { "id": "RAIL-L",  "name": "Main rail, left",       "group": "Rails",         "profile": "SQ25x2.0",  "from": "RL_F",  "to": "RL_R",  "qty": 1, "why": "The spine. Carries the driver, the seat, the engine and every other member that joins to it." },
+    { "id": "RAIL-R",  "name": "Main rail, right",      "group": "Rails",         "profile": "SQ25x2.0",  "from": "RR_F",  "to": "RR_R",  "qty": 1, "why": "Mirror of RAIL-L. Must be identical in length and straight." },
+
+    { "id": "XC1",     "name": "Front crossmember",     "group": "Crossmembers",  "profile": "SQ25x1.6",  "from": "XC1_L", "to": "XC1_R", "qty": 1, "why": "Stops the two rails closing together at the nose. Carries the front bumper mount." },
+    { "id": "XC2",     "name": "Steering crossmember",  "group": "Crossmembers",  "profile": "SQ25x1.6",  "from": "XC2_L", "to": "XC2_R", "qty": 1, "why": "Carries the steering shaft bearing and the pedal box. Must be square to the rails or the steering will pull to one side." },
+    { "id": "XC3",     "name": "Mid crossmember",       "group": "Crossmembers",  "profile": "SQ25x1.6",  "from": "XC3_L", "to": "XC3_R", "qty": 1, "why": "Front seat mounting point and torsion stiffener under the driver." },
+    { "id": "XC4",     "name": "Seat back crossmember", "group": "Crossmembers",  "profile": "SQ25x1.6",  "from": "XC4_L", "to": "XC4_R", "qty": 1, "why": "Rear seat mounting point. Takes the load of the driver being thrown backwards." },
+    { "id": "XC5",     "name": "Engine front member",   "group": "Crossmembers",  "profile": "SQ25x1.6",  "from": "XC5_L", "to": "XC5_R", "qty": 1, "why": "Front edge of the engine bay. Also the node the rear diagonals tie into." },
+    { "id": "XC6",     "name": "Rear crossmember",      "group": "Crossmembers",  "profile": "SQ25x1.6",  "from": "XC6_L", "to": "XC6_R", "qty": 1, "why": "Rear bumper mount and the strongest point for a tow/push handle." },
+
+    { "id": "DN-L",    "name": "Nose diagonal, left",   "group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC1_L", "to": "XC2_C", "qty": 1, "why": "Turns a floppy rectangle into a stiff triangle at the nose, where steering loads enter the frame." },
+    { "id": "DN-R",    "name": "Nose diagonal, right",  "group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC1_R", "to": "XC2_C", "qty": 1, "why": "Mirror of DN-L." },
+
+    { "id": "DM1-L",   "name": "Mid diagonal 1, left",  "group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC2_C", "to": "XC3_L", "qty": 1, "why": "Forms a K-brace in the side bay so the frame resists twisting when one wheel hits a bump." },
+    { "id": "DM1-R",   "name": "Mid diagonal 1, right", "group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC2_C", "to": "XC3_R", "qty": 1, "why": "Mirror of DM1-L." },
+    { "id": "DM2-L",   "name": "Mid diagonal 2, left",  "group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC3_L", "to": "XC4_C", "qty": 1, "why": "Completes the K-brace. Two short diagonals are stiffer than one long one." },
+    { "id": "DM2-R",   "name": "Mid diagonal 2, right", "group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC3_R", "to": "XC4_C", "qty": 1, "why": "Mirror of DM2-L." },
+
+    { "id": "DR1-L",   "name": "Rear diagonal 1, left", "group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC4_L", "to": "XC5_C", "qty": 1, "why": "Triangulates the engine bay. Engine torque tries to twist the frame; these members resist it." },
+    { "id": "DR1-R",   "name": "Rear diagonal 1, right","group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC4_R", "to": "XC5_C", "qty": 1, "why": "Mirror of DR1-L." },
+    { "id": "DR2-L",   "name": "Rear diagonal 2, left", "group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC5_C", "to": "XC6_L", "qty": 1, "why": "Ties the rear crossmember into the engine bay node." },
+    { "id": "DR2-R",   "name": "Rear diagonal 2, right","group": "Diagonals",     "profile": "SQ20x1.6",  "from": "XC5_C", "to": "XC6_R", "qty": 1, "why": "Mirror of DR2-L." },
+
+    { "id": "STR-RSR", "name": "Steering shaft riser",  "group": "Risers",        "profile": "RD25x2.0",  "from": "STR_LO", "to": "STR_HI", "qty": 1, "why": "Raises the steering shaft bearing above the frame so the wheel sits at chest height instead of lap height." }
+  ],
+
+  "hardpoints": {
+    "front_axle":    [0,    0, 105],
+    "rear_axle":     [1020, 0, 105],
+    "h_point":       [830,  0, 210],
+    "knee":          [335,  0, 496],
+    "steer_wheel":   [250,  0, 540],
+    "pedal_pivot":   [80,   0, 160],
+    "seat_back_top": [1010, 0, 690]
+  },
+
+  "driver": {
+    "note": "Approximate proportions. LESSON 4 tells you how to measure your own body with a tape measure and replace these numbers.",
+    "stature_mm": 1730,
+    "thigh_mm": 571,
+    "lower_leg_mm": 424,
+    "hip_to_shoulder_mm": 560,
+    "shoulder_width_mm": 460,
+    "thigh_angle_deg": 30,
+    "seat_recline_deg": 28
+  },
+
+  "limits": {
+    "min_member_length_mm": 120,
+    "max_crossmember_span_mm": 650,
+    "min_ground_clearance_mm": 60,
+    "min_knee_to_wheel_mm": 120,
+    "min_shoulder_clearance_each_side_mm": 25,
+    "pedal_reach_tolerance_mm": 40
+  },
+
+  "layout_for_drawing": {
+    "front_track_mm": 720,
+    "rear_track_mm": 780,
+    "tyre_length_mm": 265,
+    "tyre_width_mm": 90
+  }
+}

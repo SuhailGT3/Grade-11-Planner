@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="947" height="808" viewBox="0 0 947 808" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<rect width="100%" height="100%" fill="#fbfbfd"/>
+<text x="70" y="26" font-size="15" font-weight="700" fill="#172033">GT-09 RACING — Project 1 go-kart chassis, plan view (v0 PLACEHOLDER)</text>
+<text x="70" y="44" font-size="11" fill="#7a8494">Front of kart at top · dimensions in mm · generated from specs/chassis-v0.json · NOT measured, NOT reviewed</text>
+<rect x="181.3" y="140" width="49.5" height="145.8" rx="6" fill="#2c3e50" opacity="0.85"/><rect x="577.3" y="140" width="49.5" height="145.8" rx="6" fill="#2c3e50" opacity="0.85"/>
+<rect x="164.8" y="701" width="49.5" height="145.8" rx="6" fill="#2c3e50" opacity="0.85"/><rect x="593.8" y="701" width="49.5" height="145.8" rx="6" fill="#2c3e50" opacity="0.85"/>
+<path d="M 294 592.4 L 514 592.4 L 522.3 768.4 L 285.8 768.4 Z" fill="#e67e22" opacity="0.18" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="404" y="680.4" font-size="10" fill="#b9770e" text-anchor="middle">SEAT (envelope)</text>
+<line x1="244.5" y1="179.9" x2="244.5" y2="806.9" stroke="#c0392b" stroke-width="9" stroke-linecap="square" opacity="0.9"/>
+<line x1="563.5" y1="179.9" x2="563.5" y2="806.9" stroke="#c0392b" stroke-width="9" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="190.9" x2="563.5" y2="190.9" stroke="#1f618d" stroke-width="7" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="295.4" x2="563.5" y2="295.4" stroke="#1f618d" stroke-width="7" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="449.4" x2="563.5" y2="449.4" stroke="#1f618d" stroke-width="7" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="597.9" x2="563.5" y2="597.9" stroke="#1f618d" stroke-width="7" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="707.9" x2="563.5" y2="707.9" stroke="#1f618d" stroke-width="7" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="795.9" x2="563.5" y2="795.9" stroke="#1f618d" stroke-width="7" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="190.9" x2="404" y2="295.4" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="563.5" y1="190.9" x2="404" y2="295.4" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="404" y1="295.4" x2="244.5" y2="449.4" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="404" y1="295.4" x2="563.5" y2="449.4" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="449.4" x2="404" y2="597.9" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="563.5" y1="449.4" x2="404" y2="597.9" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="244.5" y1="597.9" x2="404" y2="707.9" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="563.5" y1="597.9" x2="404" y2="707.9" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="404" y1="707.9" x2="244.5" y2="795.9" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="404" y1="707.9" x2="563.5" y2="795.9" stroke="#148f77" stroke-width="5" stroke-linecap="square" opacity="0.9"/>
+<line x1="404" y1="350.4" x2="404" y2="383.4" stroke="#7d3c98" stroke-width="7" stroke-linecap="square" opacity="0.9"/>
+<text x="244.5" y="487.4" font-size="9" fill="#172033" text-anchor="middle">RAIL-L</text>
+<text x="563.5" y="487.4" font-size="9" fill="#172033" text-anchor="middle">RAIL-R</text>
+<text x="404" y="184.9" font-size="9" fill="#172033" text-anchor="middle">XC1</text>
+<text x="404" y="289.4" font-size="9" fill="#172033" text-anchor="middle">XC2</text>
+<text x="404" y="443.4" font-size="9" fill="#172033" text-anchor="middle">XC3</text>
+<text x="404" y="591.9" font-size="9" fill="#172033" text-anchor="middle">XC4</text>
+<text x="404" y="701.9" font-size="9" fill="#172033" text-anchor="middle">XC5</text>
+<text x="404" y="789.9" font-size="9" fill="#172033" text-anchor="middle">XC6</text>
+<text x="324.3" y="237.1" font-size="9" fill="#172033" text-anchor="middle">DN-L</text>
+<text x="483.8" y="237.1" font-size="9" fill="#172033" text-anchor="middle">DN-R</text>
+<text x="324.3" y="366.4" font-size="9" fill="#172033" text-anchor="middle">DM1-L</text>
+<text x="483.8" y="366.4" font-size="9" fill="#172033" text-anchor="middle">DM1-R</text>
+<text x="324.3" y="517.6" font-size="9" fill="#172033" text-anchor="middle">DM2-L</text>
+<text x="483.8" y="517.6" font-size="9" fill="#172033" text-anchor="middle">DM2-R</text>
+<text x="324.3" y="646.9" font-size="9" fill="#172033" text-anchor="middle">DR1-L</text>
+<text x="483.8" y="646.9" font-size="9" fill="#172033" text-anchor="middle">DR1-R</text>
+<text x="324.3" y="745.9" font-size="9" fill="#172033" text-anchor="middle">DR2-L</text>
+<text x="483.8" y="745.9" font-size="9" fill="#172033" text-anchor="middle">DR2-R</text>
+<text x="404" y="360.9" font-size="9" fill="#172033" text-anchor="middle">STR-RSR</text>
+<circle cx="244.5" cy="179.9" r="2.6" fill="#172033"/>
+<circle cx="244.5" cy="806.9" r="2.6" fill="#172033"/>
+<circle cx="563.5" cy="179.9" r="2.6" fill="#172033"/>
+<circle cx="563.5" cy="806.9" r="2.6" fill="#172033"/>
+<circle cx="244.5" cy="190.9" r="2.6" fill="#172033"/>
+<circle cx="563.5" cy="190.9" r="2.6" fill="#172033"/>
+<circle cx="244.5" cy="295.4" r="2.6" fill="#172033"/>
+<circle cx="404" cy="295.4" r="2.6" fill="#172033"/>
+<circle cx="563.5" cy="295.4" r="2.6" fill="#172033"/>
+<circle cx="244.5" cy="449.4" r="2.6" fill="#172033"/>
+<circle cx="563.5" cy="449.4" r="2.6" fill="#172033"/>
+<circle cx="244.5" cy="597.9" r="2.6" fill="#172033"/>
+<circle cx="404" cy="597.9" r="2.6" fill="#172033"/>
+<circle cx="563.5" cy="597.9" r="2.6" fill="#172033"/>
+<circle cx="244.5" cy="707.9" r="2.6" fill="#172033"/>
+<circle cx="404" cy="707.9" r="2.6" fill="#172033"/>
+<circle cx="563.5" cy="707.9" r="2.6" fill="#172033"/>
+<circle cx="244.5" cy="795.9" r="2.6" fill="#172033"/>
+<circle cx="563.5" cy="795.9" r="2.6" fill="#172033"/>
+<circle cx="404" cy="350.4" r="2.6" fill="#172033"/>
+<circle cx="404" cy="383.4" r="2.6" fill="#172033"/>
+<circle cx="404" cy="212.9" r="4" fill="none" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="412" y="215.9" font-size="9" fill="#8e44ad">front_axle</text>
+<circle cx="404" cy="773.9" r="4" fill="none" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="412" y="776.9" font-size="9" fill="#8e44ad">rear_axle</text>
+<circle cx="404" cy="669.4" r="4" fill="none" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="412" y="672.4" font-size="9" fill="#8e44ad">h_point</text>
+<circle cx="404" cy="397.1" r="4" fill="none" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="412" y="400.1" font-size="9" fill="#8e44ad">knee</text>
+<circle cx="404" cy="350.4" r="4" fill="none" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="412" y="353.4" font-size="9" fill="#8e44ad">steer_wheel</text>
+<circle cx="404" cy="256.9" r="4" fill="none" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="412" y="259.9" font-size="9" fill="#8e44ad">pedal_pivot</text>
+<circle cx="404" cy="768.4" r="4" fill="none" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="412" y="771.4" font-size="9" fill="#8e44ad">seat_back_top</text>
+<line x1="107" y1="212.9" x2="107" y2="773.9" stroke="#7a8494" stroke-width="1"/>
+<line x1="102" y1="212.9" x2="112" y2="212.9" stroke="#7a8494" stroke-width="1"/>
+<line x1="102" y1="773.9" x2="112" y2="773.9" stroke="#7a8494" stroke-width="1"/>
+<text x="99" y="493.4" font-size="11" fill="#4d5666" text-anchor="middle" transform="rotate(-90 99 493.4)">WHEELBASE 1020</text>
+<line x1="189.5" y1="860.4" x2="618.5" y2="860.4" stroke="#7a8494" stroke-width="1"/>
+<text x="404" y="854.4" font-size="11" fill="#4d5666" text-anchor="middle">REAR TRACK 780</text>
+<rect x="70" y="723" width="16" height="5" fill="#c0392b"/>
+<text x="94" y="730" font-size="10" fill="#4d5666">Rails — 25 x 25 x 2.0</text>
+<rect x="70" y="738" width="16" height="5" fill="#1f618d"/>
+<text x="94" y="745" font-size="10" fill="#4d5666">Crossmembers — 25 x 25 x 1.6</text>
+<rect x="70" y="753" width="16" height="5" fill="#148f77"/>
+<text x="94" y="760" font-size="10" fill="#4d5666">Diagonals — 20 x 20 x 1.6</text>
+<rect x="70" y="768" width="16" height="5" fill="#7d3c98"/>
+<text x="94" y="775" font-size="10" fill="#4d5666">Riser — 25 OD round</text>
+<rect x="70" y="783" width="16" height="5" fill="#8e44ad"/>
+<text x="94" y="790" font-size="10" fill="#4d5666">Hardpoints (axles, H-point, pedals)</text>
+</svg>
