@@ -4,6 +4,11 @@
 Onshape's built-in **Cut list** — then compare it against our own generated cut list as a cross-check.
 This is the longest lesson (~60–90 minutes). Take it in one sitting if you can.
 
+> The Frame/Frame-trim/Cut-list toolset is Onshape's own "Frames" feature. Its authoritative, free,
+> step-by-step course is [Frames Fundamentals](https://learn.onshape.com/courses/frames-fundamentals).
+> If any toolbar location below differs in your Onshape version, the course is the source of truth —
+> this lesson is the *application* of it to our chassis.
+
 ## Step 1 — draw the full path skeleton
 Back in **Frame**, edit `sk_layout` (double-click it). Keep your rectangle and add:
 1. The six **crossmember** lines at x = −40, 150, 430, 700, 900, 1060 spanning the rails. Use `D` and
